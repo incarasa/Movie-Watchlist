@@ -188,3 +188,11 @@ input {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+/* WATCHLIST STYLES */
+
+.add-movies {
+    text-decoration: none;
+    color: #363636;
+    font-weight: bold;
+}

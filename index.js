@@ -3,6 +3,7 @@ const searchInput = document.getElementById("search-input")
 const resultsContainer = document.getElementById("results-container")
 let movieTitles = []
 let movieData = []
+let watchlist = []
 
 searchButton.addEventListener("click", function() {
     let searchText = searchInput.value
@@ -45,7 +46,7 @@ function renderMovies() {
                         <div class="specs">
                             <p>${movie.Runtime}</p>
                             <p>${movie.Genre}</p>
-                            <button> <i class="fa-sharp fa-solid fa-circle-plus"></i> Watchlist</button>
+                            <button data-id="${movie.imdbID}"> <i class="fa-sharp fa-solid fa-circle-plus"></i> Watchlist</button>
 
                         </div>
 
@@ -63,4 +64,20 @@ function renderMovies() {
 function getRottenTomatoesScore(movie) {
     const ratingObj = movie.Ratings?.find(rating => rating.Source === "Rotten Tomatoes")
     return ratingObj ? ratingObj.Value : "N/A"
+}
+
+/* Adding to watchlist */
+
+document.addEventListener("click", function(e) {
+    let elem = e.target.closest('[data-id]')
+    if(elem && !watchlist.some(movie => movie.imdbID === elem.dataset.id)) {
+        watchlist = [...watchlist , ...movieData.filter((movie) => movie.imdbID === elem.dataset.id)]
+        localStorage.setItem("watchlist", JSON.stringify(watchlist))
+    }
+})
+
+/* starting script */
+const textoGuardado = localStorage.getItem("watchlist");
+if (textoGuardado) {
+    watchlist = JSON.parse(localStorage.getItem("watchlist"))
 }
