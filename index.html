@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Watchlist</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container hero-container">
+            <div class="hero-text">
+                <h1>Find your film</h1>
+                <a href="watchlist.html" class="watchlist-tag">My watchlist</a>
+            </div>
+
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search for a movie...">
+                <button id="search-button">Search</button>
+                <i class="fa-solid fa-search"></i>
+            </div>
+        </div>
+
+    </header>
+
+    <main>
+        
+        <div class="results-container container">
+            <div>
+                <!-- <i class="fa-solid fa-film movie-icon"></i>
+                <p class="movie-message">Start exploring</p> -->
+
+                <div class="movie-card">
+
+                    <div class="movie-poster">
+                        <img src="https://m.media-amazon.com/images/M/MV5BMWM5ZjQxM2YtNDlmYi00ZDNhLWI4MWUtN2VkYjBlMTY1ZTkwXkEyXkFqcGc@._V1_QL75_UX380_CR0,4,380,562_.jpg" 
+                        alt="Poster of 'The good, the bad and the ugly'">
+                    </div>
+
+                    <div class="movie-text">
+
+                        <div class="title-stars">
+                            <h2>The Good, the Bad and the Ugly</h2>
+                            <p>🍅 97%</p>
+                        </div>
+
+                        <div class="specs">
+                            <p>178 min</p>
+                            <p>Adventure, Drama, Western</p>
+                            <button> <i class="fa-sharp fa-solid fa-circle-plus"></i> Watchlist</button>
+
+                        </div>
+
+                        <div class="description">
+                            <p>A bounty-hunting scam joins two men in an uneasy 
+                                alliance against a third in a race to find a fortune in gold buried 
+                                in a remote cemetery.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <script src="index.js"></script>
+</body>
+</html>
