@@ -7,7 +7,11 @@ let watchlist = []
 
 searchButton.addEventListener("click", function() {
     let searchText = searchInput.value
-    fetch(`https://www.omdbapi.com/?apikey=6aa3ae28&s=${searchText}`)
+
+    movieTitles = []
+    movieData = []
+
+    fetch(`https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&s=${encodeURIComponent(searchText)}`)
         .then(res => res.json())
         .then(data => {
             movieTitles = data.Search.map((movie) => movie.Title)
@@ -17,11 +21,13 @@ searchButton.addEventListener("click", function() {
 
 function getMovieData() {
     movieTitles.forEach((movieTitle) => {
-        fetch(`https://www.omdbapi.com/?apikey=6aa3ae28&t=${movieTitle}&type=movie`)
+        fetch(`https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&t=${encodeURIComponent(movieTitle)}&type=movie`)
             .then(res => res.json())
             .then(data => {
-                movieData.push(data)
-                renderMovies()
+                if (data.Response === "True") {
+                    movieData.push(data)
+                    renderMovies()
+                }
             })
     })
 }
@@ -79,5 +85,5 @@ document.addEventListener("click", function(e) {
 /* starting script */
 const textoGuardado = localStorage.getItem("watchlist");
 if (textoGuardado) {
-    watchlist = JSON.parse(localStorage.getItem("watchlist"))
+    watchlist = JSON.parse(textoGuardado)
 }
