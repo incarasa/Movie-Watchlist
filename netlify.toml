@@ -1,0 +1,3 @@
+[build]
+  command = "echo \"const OMDB_API_KEY = '$OMDB_API_KEY'\" > config.js"
+  publish = "."
